@@ -5,13 +5,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ParcialService {
-    public java.util.Map<String, Object> acos(double value){
+    public java.util.Map<String, Object> sqrt(double value){
         JSONObject json=new JSONObject();
-        json.put("operation","acos");
+        json.put("operation","sqrt");
         json.put("input",value);
-        Double res=Math.acos(value);
-        if(res.isNaN()) json.put("output", "Error");
-        else json.put("output", res);
+        if(value<0) json.put("output", "Error");
+        else json.put("output", Math.sqrt(value));
         return json.toMap();
     }
 }
