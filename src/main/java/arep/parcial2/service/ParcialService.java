@@ -1,16 +1,16 @@
 package arep.parcial2.service;
 
-import org.json.JSONObject;
-import org.springframework.stereotype.Service;
 
-@Service
+import java.util.HashMap;
+import java.util.Map;
+
 public class ParcialService {
-    public java.util.Map<String, Object> sqrt(double value){
-        JSONObject json=new JSONObject();
-        json.put("operation","sqrt");
-        json.put("input",value);
-        if(value<0) json.put("output", "Error");
-        else json.put("output", Math.sqrt(value));
-        return json.toMap();
+    public static Map<String, Object> sqrt(double value){
+        Map<String,Object> map= new HashMap<>();
+        map.put("operation","sqrt");
+        map.put("input",value);
+        if(value<0) map.put("output", "Error");
+        else map.put("output", Math.sqrt(value));
+        return map;
     }
 }
